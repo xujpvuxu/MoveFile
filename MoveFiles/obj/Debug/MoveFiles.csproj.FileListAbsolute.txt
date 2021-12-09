@@ -1,0 +1,10 @@
+C:\Users\xujpv\source\repos\MoveFiles\MoveFiles\bin\Debug\MoveFiles.exe.config
+C:\Users\xujpv\source\repos\MoveFiles\MoveFiles\bin\Debug\MoveFiles.exe
+C:\Users\xujpv\source\repos\MoveFiles\MoveFiles\bin\Debug\MoveFiles.pdb
+C:\Users\xujpv\source\repos\MoveFiles\MoveFiles\obj\Debug\MoveFiles.csproj.AssemblyReference.cache
+C:\Users\xujpv\source\repos\MoveFiles\MoveFiles\obj\Debug\MoveFiles.Form1.resources
+C:\Users\xujpv\source\repos\MoveFiles\MoveFiles\obj\Debug\MoveFiles.Properties.Resources.resources
+C:\Users\xujpv\source\repos\MoveFiles\MoveFiles\obj\Debug\MoveFiles.csproj.GenerateResource.cache
+C:\Users\xujpv\source\repos\MoveFiles\MoveFiles\obj\Debug\MoveFiles.csproj.CoreCompileInputs.cache
+C:\Users\xujpv\source\repos\MoveFiles\MoveFiles\obj\Debug\MoveFiles.exe
+C:\Users\xujpv\source\repos\MoveFiles\MoveFiles\obj\Debug\MoveFiles.pdb
