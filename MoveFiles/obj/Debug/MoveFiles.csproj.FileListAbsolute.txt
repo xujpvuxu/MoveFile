@@ -8,3 +8,13 @@ C:\Users\xujpv\source\repos\MoveFiles\MoveFiles\obj\Debug\MoveFiles.csproj.Gener
 C:\Users\xujpv\source\repos\MoveFiles\MoveFiles\obj\Debug\MoveFiles.csproj.CoreCompileInputs.cache
 C:\Users\xujpv\source\repos\MoveFiles\MoveFiles\obj\Debug\MoveFiles.exe
 C:\Users\xujpv\source\repos\MoveFiles\MoveFiles\obj\Debug\MoveFiles.pdb
+D:\TFS\MoveFile\MoveFiles\bin\Debug\MoveFiles.exe.config
+D:\TFS\MoveFile\MoveFiles\bin\Debug\MoveFiles.exe
+D:\TFS\MoveFile\MoveFiles\bin\Debug\MoveFiles.pdb
+D:\TFS\MoveFile\MoveFiles\obj\Debug\MoveFiles.csproj.AssemblyReference.cache
+D:\TFS\MoveFile\MoveFiles\obj\Debug\MoveFiles.Form1.resources
+D:\TFS\MoveFile\MoveFiles\obj\Debug\MoveFiles.Properties.Resources.resources
+D:\TFS\MoveFile\MoveFiles\obj\Debug\MoveFiles.csproj.GenerateResource.cache
+D:\TFS\MoveFile\MoveFiles\obj\Debug\MoveFiles.csproj.CoreCompileInputs.cache
+D:\TFS\MoveFile\MoveFiles\obj\Debug\MoveFiles.exe
+D:\TFS\MoveFile\MoveFiles\obj\Debug\MoveFiles.pdb

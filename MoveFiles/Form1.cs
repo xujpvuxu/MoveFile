@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -25,12 +26,34 @@ namespace MoveFiles
         }
 
         /// <summary>
+        /// 檔案數量
+        /// </summary>
+        private int DataCount;
+
+        /// <summary>
+        /// 資料夾數量
+        /// </summary>
+        private int FileCount;
+
+        /// <summary>
+        /// 檔案鎖定
+        /// </summary>
+        private object LockDataObject = new object();
+
+        /// <summary>
+        /// 資料夾鎖定
+        /// </summary>
+        private object LockFileObject = new object();
+
+        /// <summary>
         /// 開始搬檔
         /// </summary>
         /// <param name="sender">搬檔按鍵</param>
         /// <param name="e">搬檔事件</param>
-        private void Run_Click(object sender, EventArgs e)
+        private async void Run_Click(object sender, EventArgs e)
         {
+            DataCount = 0;
+            FileCount = 0;
             (bool isEfficient, string path)[] pathData = new (bool efficient, string path)[2];
             pathData[0] = GetPath(SourcePath.Text);
             pathData[1] = GetPath(TargetPath.Text);
@@ -38,8 +61,11 @@ namespace MoveFiles
             //檢查路徑
             if (pathData.All(data => data.isEfficient))
             {
+                Stopwatch watch = new Stopwatch();
+                watch.Restart();
                 Move(pathData[0].path, pathData[1].path);
-                MessageBox.Show("完成");
+                watch.Stop();
+                MessageBox.Show($"檔案數量：{DataCount}，資料夾數量：{FileCount}，耗時：{watch.Elapsed.TotalSeconds}");
             }
         }
 
@@ -67,18 +93,26 @@ namespace MoveFiles
             }
 
             //搬檔案
-            foreach (string perData in Directory.GetFiles(sourcePath))
+            Parallel.ForEach(Directory.GetFiles(sourcePath), perData =>
             {
                 File.Move(perData, Path.Combine(targetPath, Path.Combine(targetPath, Path.GetFileName(perData))));
-            }
+                lock (LockDataObject)
+                {
+                    DataCount++;
+                }
+            });
 
             //進入資料夾
-            foreach (string perPath in Directory.GetDirectories(sourcePath))
+            Parallel.ForEach(Directory.GetDirectories(sourcePath), perPath =>
             {
                 string fileName = Path.GetFileName(perPath);
                 Move(Path.GetFullPath(perPath), Path.Combine(targetPath, fileName));
                 Directory.Delete(perPath);
-            }
+                lock (LockFileObject)
+                {
+                    FileCount++;
+                }
+            });
         }
 
         /// <summary>
