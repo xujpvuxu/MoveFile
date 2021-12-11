@@ -35,6 +35,8 @@ namespace MoveFiles
         /// </summary>
         private int FileCount;
 
+        private Stopwatch Watch;
+
         /// <summary>
         /// 檔案鎖定
         /// </summary>
@@ -54,6 +56,7 @@ namespace MoveFiles
         {
             DataCount = 0;
             FileCount = 0;
+            Watch = new Stopwatch();
             (bool isEfficient, string path)[] pathData = new (bool efficient, string path)[2];
             pathData[0] = GetPath(SourcePath.Text);
             pathData[1] = GetPath(TargetPath.Text);
@@ -61,11 +64,10 @@ namespace MoveFiles
             //檢查路徑
             if (pathData.All(data => data.isEfficient))
             {
-                Stopwatch watch = new Stopwatch();
-                watch.Restart();
-                Move(pathData[0].path, pathData[1].path);
-                watch.Stop();
-                MessageBox.Show($"檔案數量：{DataCount}，資料夾數量：{FileCount}，耗時：{watch.Elapsed.TotalSeconds}");
+                Watch.Restart();
+                await Task.Run(() => Move(pathData[0].path, pathData[1].path));
+                Watch.Stop();
+                //MessageBox.Show($"耗時：{watch.Elapsed.TotalSeconds}");
             }
         }
 
@@ -100,19 +102,22 @@ namespace MoveFiles
                 {
                     DataCount++;
                 }
+                Invoke(new Action(() => ShowData.Text = DataCount.ToString()));
             });
 
             //進入資料夾
             Parallel.ForEach(Directory.GetDirectories(sourcePath), perPath =>
             {
                 string fileName = Path.GetFileName(perPath);
-                Move(Path.GetFullPath(perPath), Path.Combine(targetPath, fileName));
-                Directory.Delete(perPath);
                 lock (LockFileObject)
                 {
                     FileCount++;
                 }
+                Invoke(new Action(() => ShowFile.Text = FileCount.ToString()));
+                Move(Path.GetFullPath(perPath), Path.Combine(targetPath, fileName));
+                Directory.Delete(perPath);
             });
+            Invoke(new Action(() => ShowTime.Text = Watch.Elapsed.Seconds.ToString()));
         }
 
         /// <summary>

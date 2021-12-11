@@ -34,11 +34,17 @@ namespace MoveFiles
             this.SelectSourcePath = new System.Windows.Forms.Button();
             this.TargetPath = new System.Windows.Forms.TextBox();
             this.SelectTargetPath = new System.Windows.Forms.Button();
+            this.LbData = new System.Windows.Forms.Label();
+            this.LbFile = new System.Windows.Forms.Label();
+            this.ShowData = new System.Windows.Forms.Label();
+            this.ShowFile = new System.Windows.Forms.Label();
+            this.LbTime = new System.Windows.Forms.Label();
+            this.ShowTime = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Run
             // 
-            this.Run.Location = new System.Drawing.Point(271, 319);
+            this.Run.Location = new System.Drawing.Point(307, 375);
             this.Run.Name = "Run";
             this.Run.Size = new System.Drawing.Size(99, 48);
             this.Run.TabIndex = 1;
@@ -80,11 +86,71 @@ namespace MoveFiles
             this.SelectTargetPath.UseVisualStyleBackColor = true;
             this.SelectTargetPath.Click += new System.EventHandler(this.SelectTargetPath_Click);
             // 
+            // LbData
+            // 
+            this.LbData.AutoSize = true;
+            this.LbData.Location = new System.Drawing.Point(96, 304);
+            this.LbData.Name = "LbData";
+            this.LbData.Size = new System.Drawing.Size(62, 18);
+            this.LbData.TabIndex = 4;
+            this.LbData.Text = "檔案：";
+            // 
+            // LbFile
+            // 
+            this.LbFile.AutoSize = true;
+            this.LbFile.Location = new System.Drawing.Point(96, 332);
+            this.LbFile.Name = "LbFile";
+            this.LbFile.Size = new System.Drawing.Size(80, 18);
+            this.LbFile.TabIndex = 5;
+            this.LbFile.Text = "資料夾：";
+            // 
+            // ShowData
+            // 
+            this.ShowData.AutoSize = true;
+            this.ShowData.Location = new System.Drawing.Point(160, 304);
+            this.ShowData.Name = "ShowData";
+            this.ShowData.Size = new System.Drawing.Size(16, 18);
+            this.ShowData.TabIndex = 4;
+            this.ShowData.Text = "0";
+            // 
+            // ShowFile
+            // 
+            this.ShowFile.AutoSize = true;
+            this.ShowFile.Location = new System.Drawing.Point(182, 332);
+            this.ShowFile.Name = "ShowFile";
+            this.ShowFile.Size = new System.Drawing.Size(16, 18);
+            this.ShowFile.TabIndex = 5;
+            this.ShowFile.Text = "0";
+            // 
+            // LbTime
+            // 
+            this.LbTime.AutoSize = true;
+            this.LbTime.Location = new System.Drawing.Point(96, 361);
+            this.LbTime.Name = "LbTime";
+            this.LbTime.Size = new System.Drawing.Size(92, 18);
+            this.LbTime.TabIndex = 5;
+            this.LbTime.Text = "耗時(秒)：";
+            // 
+            // ShowTime
+            // 
+            this.ShowTime.AutoSize = true;
+            this.ShowTime.Location = new System.Drawing.Point(182, 361);
+            this.ShowTime.Name = "ShowTime";
+            this.ShowTime.Size = new System.Drawing.Size(16, 18);
+            this.ShowTime.TabIndex = 5;
+            this.ShowTime.Text = "0";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.ShowTime);
+            this.Controls.Add(this.ShowFile);
+            this.Controls.Add(this.LbTime);
+            this.Controls.Add(this.LbFile);
+            this.Controls.Add(this.ShowData);
+            this.Controls.Add(this.LbData);
             this.Controls.Add(this.SelectTargetPath);
             this.Controls.Add(this.SelectSourcePath);
             this.Controls.Add(this.TargetPath);
@@ -104,6 +170,12 @@ namespace MoveFiles
         private System.Windows.Forms.Button SelectSourcePath;
         private System.Windows.Forms.TextBox TargetPath;
         private System.Windows.Forms.Button SelectTargetPath;
+        private System.Windows.Forms.Label LbData;
+        private System.Windows.Forms.Label LbFile;
+        private System.Windows.Forms.Label ShowData;
+        private System.Windows.Forms.Label ShowFile;
+        private System.Windows.Forms.Label LbTime;
+        private System.Windows.Forms.Label ShowTime;
     }
 }
 
