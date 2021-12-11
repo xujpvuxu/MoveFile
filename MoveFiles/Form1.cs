@@ -35,6 +35,9 @@ namespace MoveFiles
         /// </summary>
         private int FileCount;
 
+        /// <summary>
+        /// 碼表
+        /// </summary>
         private Stopwatch Watch;
 
         /// <summary>
